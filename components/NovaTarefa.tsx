@@ -20,7 +20,9 @@ export default function NovaTarefa(props: NovaTarefaProps) {
     }
     return (
         <form onSubmit={adicionarTarefa}>
+            <label htmlFor="nome-tarefa">Nome da tarefa</label>
             <input 
+                id="nome-tarefa"
                 value={nome} 
                 onChange={(e) =>
                    setNome(e.target.value)
