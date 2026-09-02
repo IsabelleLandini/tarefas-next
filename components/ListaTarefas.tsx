@@ -1,0 +1,43 @@
+"use client";
+
+import { useState } from "react";
+import NovaTarefa from "./NovaTarefa";
+
+type Tarefa = {
+    id: number
+    nome: string
+    descricao: string
+    concluida: boolean
+}
+
+type ListaTarefasProps = {
+    tarefas: Tarefa[]
+}
+export default function ListaTarefas(props: ListaTarefasProps) {
+    const [tarefas, setTarefas] = useState(props.tarefas) 
+
+    function adicionarTarefa(nome: string) {
+       const novaTarefa: Tarefa = {
+        id: Date.now(),
+        nome: nome,
+        descricao: "",
+        concluida: false
+       }
+       setTarefas([...tarefas, novaTarefa])
+    }
+
+    return (
+        <main>
+            <NovaTarefa onAdicionarTarefa={adicionarTarefa} />
+
+            {tarefas.map((tarefa) => {
+                return (
+                    <div key={tarefa.id}>
+                        <h3>{tarefa.nome}</h3>
+                        <p>{tarefa.descricao}</p>
+                        <p>{tarefa.concluida? "Concluída" : "Pendente"}</p>
+                    </div>
+            )})}
+        </main>   
+    ) 
+}

@@ -1,3 +1,4 @@
+import ListaTarefas from "@/components/ListaTarefas";
 
 const tarefas = [
   {
@@ -10,7 +11,7 @@ const tarefas = [
     id: 2,
     nome: "Fazer exercícios de TypeScript",
     descricao: "Praticar tipos, interfaces e generics",
-    concluida: true
+    concluida: false
   },
   {
     id: 3,
@@ -23,15 +24,7 @@ const tarefas = [
 export default function Home() {
   return (
       <main>
-        {tarefas.map((tarefa) => {
-          return (
-            <div key={tarefa.id}>
-              <h3>{tarefa.nome}</h3>
-              <p>{tarefa.descricao}</p>
-              <p>{tarefa.concluida? "Concluída" : "Pendente"}</p>
-            </div>
-          );
-        })}
+        <ListaTarefas tarefas={tarefas} />
       </main>
   );
 }
