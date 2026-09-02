@@ -2,19 +2,17 @@
 
 import { useState } from "react";
 import NovaTarefa from "./NovaTarefa";
-
-type Tarefa = {
-    id: number
-    nome: string
-    descricao: string
-    concluida: boolean
-}
+import type { Tarefa } from "@/types/tarefa";
+import { useContadorDeTarefas } from "@/hooks/useContadorDeTarefas";
 
 type ListaTarefasProps = {
     tarefas: Tarefa[]
 }
+
 export default function ListaTarefas(props: ListaTarefasProps) {
     const [tarefas, setTarefas] = useState(props.tarefas) 
+
+    const quantidade = useContadorDeTarefas(tarefas)
 
     function adicionarTarefa(nome: string) {
        const novaTarefa: Tarefa = {
@@ -30,6 +28,8 @@ export default function ListaTarefas(props: ListaTarefasProps) {
         <main>
             <NovaTarefa onAdicionarTarefa={adicionarTarefa} />
 
+            <p>Total de tarefas: {quantidade}</p>
+            
             {tarefas.map((tarefa) => {
                 return (
                     <div key={tarefa.id}>
