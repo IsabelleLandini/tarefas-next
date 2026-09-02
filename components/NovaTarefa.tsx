@@ -11,6 +11,11 @@ export default function NovaTarefa(props: NovaTarefaProps) {
 
     function adicionarTarefa(e: FormEvent) {
         e.preventDefault()
+
+        if (nome.trim() === "") { 
+            return
+        }
+        
         props.onAdicionarTarefa(nome)
     }
     return (
