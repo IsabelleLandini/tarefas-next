@@ -27,9 +27,9 @@ export default function ListaTarefas(props: ListaTarefasProps) {
     return (
         <main>
             <NovaTarefa onAdicionarTarefa={adicionarTarefa} />
-
             <p>Total de tarefas: {quantidade}</p>
             
+
             {tarefas.map((tarefa) => {
                 return (
                     <div key={tarefa.id}>
