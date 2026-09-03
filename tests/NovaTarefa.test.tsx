@@ -32,3 +32,15 @@ test("adiciona uma tarefa com nome válido", () => {
 
     expect(onAdicionarTarefa).toHaveBeenCalledWith("Estudar React");
 });
+
+test("mostra mensagem ao tentar adicionar tarefa vazia", () => {
+    const onAdicionarTarefa = jest.fn();
+
+    render(<NovaTarefa onAdicionarTarefa={onAdicionarTarefa} />);
+
+    fireEvent.submit(document.querySelector("form")!);
+
+    expect(screen.getByText("Digite o nome da tarefa.")).toBeInTheDocument();
+
+    expect(onAdicionarTarefa).not.toHaveBeenCalled();
+});

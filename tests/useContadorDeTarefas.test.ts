@@ -23,6 +23,7 @@ const tarefas = [
 ]
 
 test("retorna a quantidade de tarefas", () => {
+  // Executa o hook isoladamente para verificar o valor retornado.
     const {result} = renderHook(() => useContadorDeTarefas(tarefas));
 
     expect(result.current).toBe(3)

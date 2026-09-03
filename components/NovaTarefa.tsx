@@ -8,11 +8,13 @@ type NovaTarefaProps = {
 
 export default function NovaTarefa(props: NovaTarefaProps) {
     const [nome, setNome] = useState("")
+    const [erro, setErro] = useState("")
 
     function adicionarTarefa(e: FormEvent) {
         e.preventDefault()
 
         if (nome.trim() === "") { 
+            setErro("Digite o nome da tarefa.")
             return
         }
         
@@ -24,10 +26,12 @@ export default function NovaTarefa(props: NovaTarefaProps) {
             <input 
                 id="nome-tarefa"
                 value={nome} 
-                onChange={(e) =>
+                onChange={(e) => {
                    setNome(e.target.value)
-                }
+                   setErro("")
+                }}
             />
+            {erro && <p>{erro}</p>}
             <button>Adicionar</button>
         </form>
     )
