@@ -25,7 +25,7 @@ export default function ListaTarefas(props: ListaTarefasProps) {
     }
 
     return (
-        <main>
+        <div>
             <NovaTarefa onAdicionarTarefa={adicionarTarefa} />
             <p>Total de tarefas: {quantidade}</p>
             
@@ -38,6 +38,6 @@ export default function ListaTarefas(props: ListaTarefasProps) {
                         <p>{tarefa.concluida? "Concluída" : "Pendente"}</p>
                     </div>
             )})}
-        </main>   
+        </div>   
     ) 
 }
