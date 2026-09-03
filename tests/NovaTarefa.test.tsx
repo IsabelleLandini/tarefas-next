@@ -28,7 +28,7 @@ test("adiciona uma tarefa com nome válido", () => {
 
     fireEvent.change(input, {target: {value: "Estudar React"}});
 
-    fireEvent.submit(document.querySelector("form")!);
+    fireEvent.click(screen.getByRole("button", {name: "Adicionar"}));
 
     expect(onAdicionarTarefa).toHaveBeenCalledWith("Estudar React");
 });
