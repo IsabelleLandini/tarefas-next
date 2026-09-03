@@ -17,11 +17,11 @@ export default function ListaTarefas(props: ListaTarefasProps) {
     function adicionarTarefa(nome: string) {
        const novaTarefa: Tarefa = {
         id: Date.now(),
-        nome: nome,
+        nome,
         descricao: "",
         concluida: false
        }
-       setTarefas([...tarefas, novaTarefa])
+       setTarefas((tarefasAtuais) => [...tarefasAtuais, novaTarefa])
     }
 
     return (
