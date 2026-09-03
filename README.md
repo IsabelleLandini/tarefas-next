@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📝 Tarefas Next.js
 
-## Getting Started
+Aplicação de gerenciamento de tarefas desenvolvida com **Next.js, React e TypeScript**, criada para praticar componentes, gerenciamento de estado, custom hooks e testes automatizados.
 
-First, run the development server:
+## Tecnologias
+
+* Next.js 15
+* React
+* TypeScript
+* Jest
+* Testing Library
+
+## Funcionalidades
+
+* Exibição de tarefas iniciais
+* Adição de novas tarefas
+* Validação do formulário
+* Mensagem de erro para tarefa sem nome
+* Contador de tarefas
+* Atualização da lista ao adicionar uma tarefa
+* Testes automatizados
+
+## 📂 Estrutura
+
+```text
+tarefas-next/
+├── app/
+│   └── page.tsx
+├── components/
+│   ├── ListaTarefas.tsx
+│   └── NovaTarefa.tsx
+├── hooks/
+│   └── useContadorDeTarefas.ts
+├── tests/
+│   ├── NovaTarefa.test.tsx
+│   ├── page.test.tsx
+│   └── useContadorDeTarefas.test.ts
+├── types/
+│   └── tarefa.ts
+├── jest.config.ts
+├── jest.setup.ts
+├── package.json
+└── tsconfig.json
+```
+
+## Testes
+
+O projeto utiliza **Jest + Testing Library** para validar os principais fluxos da aplicação.
+
+```bash
+npm test
+```
+
+Os testes verificam:
+
+* Renderização do formulário
+* Validação de tarefa vazia
+* Exibição da mensagem de erro
+* Adição de tarefa válida
+* Contagem de tarefas pelo custom hook
+* Renderização das tarefas iniciais
+
+## Como executar
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute o projeto:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 👩🏻‍💻 Autora
 
-## Learn More
+**Isabelle Landini**
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
